@@ -6,59 +6,80 @@ import {
   Image,
   KeyboardAvoidingView,
   TextInput,
+  Pressable,
 } from "react-native";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <SafeAreaView style={styles.container}>
-      <View>
-        <Image
-          style={styles.headerImageLoginScreen}
-          source={require("../../assets/BuyFree_images/Logo white Buy Free.png")}
-        />
-      </View>
-
-      <KeyboardAvoidingView>
+        <View>
+          <Image
+            style={styles.headerImageLoginScreen}
+            source={require("../../assets/BuyFree_images/Logo white Buy Free.png")}
+          />
+        </View>
         <View>
           <Text style={styles.textForLogin}>Connectez vous à votre compte</Text>
         </View>
+        
+                                        
+        <KeyboardAvoidingView>
+       
+
+        <View style={styles.inputEmailViewFather}>
+          <View style={styles.inputEmailView}>
+            <MaterialCommunityIcons
+              style={styles.emailIcon}
+              name="email"
+              size={20}
+              color="black"
+            />
+            <TextInput
+              value={email}
+              onChangeText={(text) => setEmail(text)}
+              style={styles.inputEmailLogin}
+              placeholder="Entrez votre Email"
+              placeholderTextColor="black"
+            />
+          </View>
+        </View>
+
+        <View style={styles.inputEmailViewFather2}>
+          <View style={styles.inputEmailView}>
+            <FontAwesome6
+              style={styles.passwordIcon}
+              name="lock"
+              size={20}
+              color="black"
+            />
+            <TextInput
+              value={password}
+              onChangeText={(text) => setPassword(text)}
+              secureTextEntry={true}
+              style={styles.inputEmailLogin}
+              placeholder="Entrez votre mot de passe"
+              placeholderTextColor="black"
+            />
+          </View>
+        </View>
+
+        <View style={styles.sectionForgotPassword}>
+          <Text style={styles.resterConnecte}>Restez connectés</Text>
+          <Text style={styles.motDePasseOublie}>Mot de passe oublié ?</Text>
+        </View>
+
+        <View style={styles.sectionLoginButton}>
+          <Pressable style={styles.loginButton}>
+            <Text>Se Connecter</Text>
+          </Pressable>
+        </View>
+
       </KeyboardAvoidingView>
-
-      <View style={styles.inputEmailViewFather}>
-        <View style={styles.inputEmailView}>
-          <MaterialCommunityIcons
-            style={styles.emailIcon}
-            name="email"
-            size={20}
-            color="black"
-          />
-          <TextInput
-            style={styles.inputEmailLogin}
-            placeholder="Entrez votre Email"
-            placeholderTextColor="black"
-          />
-        </View>
-      </View>
-
-      <View style={styles.inputEmailViewFather2}>
-        <View style={styles.inputEmailView}>
-          <FontAwesome6
-            style={styles.passwordIcon}
-            name="lock"
-            size={20}
-            color="black"
-          />
-          <TextInput
-            style={styles.inputEmailLogin}
-            placeholder="Entrez votre mot de passe"
-            placeholderTextColor="black"
-          />
-        </View>
-      </View>
     </SafeAreaView>
   );
 };
@@ -72,16 +93,20 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   headerImageLoginScreen: {
-    marginTop: 50,
+    marginTop: 60,
     width: 150,
     height: 150,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
   textForLogin: {
-    fontWeight: "semi-bold",
+    fontWeight: 400,
     fontSize: 17,
     marginTop: 25,
-    fontFamily: "Nunito-regular",
     color: "black",
+    alignItems: "center",
+    flexDirection: "row",
   },
   inputEmailLogin: {
     padding: 5,
@@ -109,9 +134,40 @@ const styles = StyleSheet.create({
     color: "grey",
   },
   inputEmailViewFather: {
-    marginTop: 70,
+    marginTop: 40,
   },
   inputEmailViewFather2: {
     marginTop: 30,
   },
+  sectionForgotPassword: {
+    marginTop: 25,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  resterConnecte: {},
+  motDePasseOublie: {
+    color: "#007FFF",
+    fontWeight: 500,
+    alignItems: "flex-end",
+  },
+  sectionLoginButton:{
+    width: 200,
+    backgroundColor: "#FEBE10",
+    borderRadius: 8,
+    color: "white",
+    marginLeft: "auto",
+    marginRight: "auto",
+    padding: 15,
+    marginTop: 50,
+    alignItems: "center",
+
+  },
+  loginButton:{
+    textAlign: "center",
+    color: "white",
+    fontSize: 15,
+    fontWeight: "bold",
+
+  }
 });
