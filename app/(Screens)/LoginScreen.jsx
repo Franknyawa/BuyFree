@@ -10,11 +10,13 @@ import {
 } from "react-native";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
-import React, { useState } from "react";
+import React, { useState, } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
         <View>
@@ -75,9 +77,13 @@ const LoginScreen = () => {
 
         <View style={styles.sectionLoginButton}>
           <Pressable style={styles.loginButton}>
-            <Text>Se Connecter</Text>
+            <Text style={styles.login} >Se Connecter</Text>
           </Pressable>
         </View>
+
+        <Pressable onPress={() =>navigation.navigate('Register')} style={styles.PressForSignup}>
+          <Text style={styles.Signup}>Vous n'avez pas de compte ? Inscrivez-vous</Text>
+        </Pressable>
 
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -165,9 +171,19 @@ const styles = StyleSheet.create({
   },
   loginButton:{
     textAlign: "center",
-    color: "white",
     fontSize: 15,
-    fontWeight: "bold",
-
+  },
+  login:{
+    color: "black",
+    fontWeight: 800,
+    fontSize: 15,
+  },
+  PressForSignup:{
+    marginTop: 22,
+  },
+  Signup:{
+    textAlign: "center",
+    color:"grey",
+    fontSize: 15,
   }
 });
