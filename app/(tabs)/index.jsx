@@ -1,12 +1,16 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
 
 // create a component
 const Homepage = () => {
+   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Text>Homepage</Text>
+      <Pressable onPress={() => navigation.navigate("../(Screens)/LoginScreen.jsx")}>
+        <Text>Login</Text>
+      </Pressable>
     </View>
   );
 };

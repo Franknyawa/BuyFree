@@ -81,7 +81,7 @@ const LoginScreen = () => {
           </Pressable>
         </View>
 
-        <Pressable onPress={() =>navigation.navigate('Register')} style={styles.PressForSignup}>
+        <Pressable onPress={() =>navigation.navigate("Register")} style={styles.PressForSignup}>
           <Text style={styles.Signup}>Vous n'avez pas de compte ? Inscrivez-vous</Text>
         </Pressable>
 

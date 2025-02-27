@@ -29,12 +29,27 @@ const RegisterScreen = () => {
       />
     </View>
     <View>
-      <Text style={styles.textForLogin}>Connectez vous à votre compte</Text>
+      <Text style={styles.textForLogin}>Creez votre Compte</Text>
     </View>
     
                                     
     <KeyboardAvoidingView>
 
+    <View style={styles.inputEmailViewFather}>
+      <View style={styles.inputEmailView}>
+        <MaterialCommunityIcons
+          style={styles.emailIcon}
+          name="Person"
+          size={20}
+          color="black"
+        />
+        <TextInput
+          style={styles.inputEmailLogin}
+          placeholder="Entrez votre Nom"
+          placeholderTextColor="black"
+        />
+      </View>
+    </View>
     <View style={styles.inputEmailViewFather}>
       <View style={styles.inputEmailView}>
         <MaterialCommunityIcons
@@ -74,7 +89,7 @@ const RegisterScreen = () => {
 
     <View style={styles.sectionForgotPassword}>
       <Text style={styles.resterConnecte}>Restez connectés</Text>
-      <Text style={styles.motDePasseOublie}>Mot de passe oublié ?</Text>
+      
     </View>
 
     <View style={styles.sectionLoginButton}>
@@ -83,7 +98,7 @@ const RegisterScreen = () => {
       </Pressable>
     </View>
 
-    <Pressable onPress={() =>navigation.navigate('RegisterScreen')} style={styles.PressForSignup}>
+    <Pressable onPress={() =>navigation.goBack()} style={styles.PressForSignup}>
       <Text style={styles.Signup}>Connectez - vous</Text>
     </Pressable>
 
@@ -91,7 +106,7 @@ const RegisterScreen = () => {
 </SafeAreaView>
   );
 };
-
+ 
 // define your styles
 const styles = StyleSheet.create({
   container: {
@@ -153,11 +168,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   resterConnecte: {},
-  motDePasseOublie: {
-    color: "#007FFF",
-    fontWeight: 500,
-    alignItems: "flex-end",
-  },
+  
   sectionLoginButton:{
     width: 200,
     backgroundColor: "#FEBE10",
